@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Valentine's Day Proposal</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #ffe6e6;
+            font-family: 'Comic Sans MS', cursive;
+            padding-top: 50px;
+        }
+        h1 {
+            color: #ff4d4d;
+        }
+        #container {
+            background: #fff;
+            display: inline-block;
+            padding: 20px;
+            border: 2px solid #ff4d4d;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #yesBtn {
+            background-color: #ff4d4d;
+            color: white;
+        }
+        #noBtn {
+            background-color: #f06292;
+            color: white;
+        }
+        #finalMessage {
+            color: #ff1493;
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <h1 id="question">Will you be my Valentine?</h1>
+    <button id="yesBtn">Yes</button>
+    <button id="noBtn">No</button>
+    <p id="finalMessage"></p>
+</div>
+
+<script>
+    const noBtn = document.getElementById('noBtn');
+    const yesBtn = document.getElementById('yesBtn');
+    const question = document.getElementById('question');
+    const finalMessage = document.getElementById('finalMessage');
+
+    let yesBtnSize = 18; 
+    const loveMessages = [
+        "Are you sure, babe?",
+        "You really wanna do this?",
+        "Think again, cutie!",
+        "Don't break my heart 💔",
+        "But I love you!",
+        "Just say yes, please 😢",
+        "You can't resist me 😘",
+        "Come on, my sweetie 💕"
+    ];
+
+    noBtn.addEventListener('click', function () {
+        const randomMessage = loveMessages[Math.floor(Math.random() * loveMessages.length)];
+        question.textContent = randomMessage;
+
+        yesBtnSize += 5; 
+        yesBtn.style.fontSize = yesBtnSize + "px"; 
+    });
+
+    yesBtn.addEventListener('click', function () {
+        finalMessage.textContent = "I love you too, now you're my girlfriend 😚 ❣️ ❣️ forever.";
+        yesBtn.style.display = "none";
+        noBtn.style.display = "none";
+    });
+</script>
+
+</body>
+</html>
